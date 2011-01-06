@@ -1,0 +1,7 @@
+m () {
+    (
+        cd $VIRTUAL_ENV/src/egi
+        ./manage.py $@
+    )
+}
+export m

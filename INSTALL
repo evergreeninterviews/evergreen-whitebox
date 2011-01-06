@@ -1,0 +1,54 @@
+Prepare workstation
+===================
+
+- Python 2.6
+
+- virtualenvwrapper
+
+
+Prepare project environment
+===========================
+
+::
+
+    $ mkvirtualenv -p python2.6 --no-site-packages egi
+    $ workon egi
+    $ cd src
+    $ git clone https://github.com/evergreeninterviews/evergreeninterviews.com.git egi
+    $ cd egi
+    $ pip install -r requirements.txt
+    $ python setup.py develop
+
+For convenience, to enable the ``m`` command::
+
+    $ echo "source \$VIRTUAL_ENV/src/egi/bin/postactivate" >> $VIRTUAL_ENV/bin/postactivate
+    $ source bin/postactivate
+
+Create local settings::
+
+    $ cp egiproject/settings/local.py.sample egiproject/settings/local.py
+
+
+Create development database
+===========================
+
+::
+
+    $ rm dev.db             # If you need to.
+    $ m syncdb --noinput    # Automatically creates user "admin"/"admin"
+
+
+Run development server
+======================
+
+::
+
+    $ m runserver
+
+
+Starting points
+===============
+
+- http://localhost:8000/
+
+- http://localhost:8000/admin/
