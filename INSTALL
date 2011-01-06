@@ -27,6 +27,8 @@ For convenience, to enable the ``m`` command::
 Create local settings::
 
     $ cp egiproject/settings/local.py.sample egiproject/settings/local.py
+        # or
+    $ ln -s local.py.sample egiproject/settings/local.py
 
 
 Create development database
