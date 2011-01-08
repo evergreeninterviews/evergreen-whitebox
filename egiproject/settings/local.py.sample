@@ -1,3 +1,0 @@
-# Use the stock development settings.
-
-from egiproject.settings.development import *

@@ -11,24 +11,24 @@ Prepare project environment
 
 ::
 
-    $ mkvirtualenv -p python2.6 --no-site-packages egi
-    $ workon egi
+    $ mkvirtualenv -p python2.6 --no-site-packages evergreen
+    $ workon evergreen
     $ cd src
-    $ git clone https://github.com/evergreeninterviews/evergreeninterviews.com.git egi
-    $ cd egi
+    $ git clone https://github.com/evergreeninterviews/evergreen-whitebox.git
+    $ cd evergreen-whitebox
     $ pip install -r requirements.txt
     $ python setup.py develop
 
 For convenience, to enable the ``m`` command::
 
-    $ echo "source \$VIRTUAL_ENV/src/egi/bin/postactivate" >> $VIRTUAL_ENV/bin/postactivate
+    $ echo "source \$VIRTUAL_ENV/src/evergreen-whitebox/bin/postactivate" >> $VIRTUAL_ENV/bin/postactivate
     $ source bin/postactivate
 
 Create local settings::
 
-    $ cp egiproject/settings/local.py.sample egiproject/settings/local.py
+    $ cp egwexample/settings/local.py.sample egwexample/settings/local.py
         # or
-    $ ln -s local.py.sample egiproject/settings/local.py
+    $ ln -sf local.py.sample egwexample/settings/local.py
 
 
 Create development database
@@ -36,8 +36,11 @@ Create development database
 
 ::
 
-    $ rm dev.db             # If you need to.
-    $ m syncdb --noinput    # Automatically creates user "admin"/"admin"
+    # If you need to.
+    $ rm dev.db
+
+    # Automatically creates user "admin" / "admin"
+    $ dm-whitebox-example syncdb --noinput
 
 
 Run development server
@@ -45,7 +48,7 @@ Run development server
 
 ::
 
-    $ m runserver
+    $ dm-whitebox-example runserver
 
 
 Starting points
@@ -53,4 +56,4 @@ Starting points
 
 - http://localhost:8000/
 
-- http://localhost:8000/admin/
+- http://localhost:8000/admin/ - log in as "admin" / "admin"

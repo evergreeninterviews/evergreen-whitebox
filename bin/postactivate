@@ -1,7 +1,7 @@
-m () {
+dm-whitebox-example () {
     (
-        cd $VIRTUAL_ENV/src/egi
-        ./manage.py $@
+        cd $VIRTUAL_ENV/src/evergreen-whitebox
+        export DJANGO_SETTINGS_MODULE="egwexample.settings.local"
+        django-admin.py $@
     )
 }
-export m

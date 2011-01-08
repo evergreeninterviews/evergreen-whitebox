@@ -80,7 +80,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'staticfiles.context_processors.static_url',
 )
 
-ROOT_URLCONF = 'egiproject.urls'
+ROOT_URLCONF = 'egwproject.urls'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -96,6 +96,6 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.admindocs',
-    # Include egiproject as an app so we can access its templates and media.
-    'egiproject',
+    # Include egwproject as an app so we can access its templates and media.
+    'egwproject',
 )
