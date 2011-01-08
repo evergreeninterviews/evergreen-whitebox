@@ -36,7 +36,11 @@ USE_L10N = True
 MEDIA_ROOT = ''
 
 # URL that handles the media served from MEDIA_ROOT. Include trailing slash.
-MEDIA_URL = ''
+MEDIA_URL = '/media/'
+
+STATIC_ROOT = ''
+
+STATIC_URL = '/static/'
 
 ADMIN_MEDIA_PREFIX = '/media/'
 
