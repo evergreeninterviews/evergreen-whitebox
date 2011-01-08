@@ -80,7 +80,7 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'staticfiles.context_processors.static_url',
 )
 
-ROOT_URLCONF = 'egwproject.urls'
+ROOT_URLCONF = 'egwproject.urls.common'
 
 TEMPLATE_DIRS = (
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".

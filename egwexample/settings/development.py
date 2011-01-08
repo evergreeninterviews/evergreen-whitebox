@@ -1,4 +1,4 @@
-from egwproject.settings.common import *
+from egwexample.settings.common import *
 
 
 DEBUG = TEMPLATE_DEBUG = True
