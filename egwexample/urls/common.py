@@ -3,6 +3,6 @@ from django.conf.urls.defaults import *
 
 urlpatterns = patterns('',
     url(regex=  '',
-        include('egwproject.urls.common'),
+        view=   include('egwproject.urls.common'),
     ),
 )
