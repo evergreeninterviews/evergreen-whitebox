@@ -1,4 +1,4 @@
-dm-whitebox-example () {
+dm-egwexample () {
     (
         cd $VIRTUAL_ENV/src/evergreen-whitebox
         export DJANGO_SETTINGS_MODULE="egwexample.settings.local"

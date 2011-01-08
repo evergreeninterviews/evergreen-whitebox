@@ -19,7 +19,7 @@ Prepare project environment
     $ pip install -r requirements.txt
     $ python setup.py develop
 
-For convenience, to enable the ``m`` command::
+Enable the ``dm-egwexample`` management command::
 
     $ echo "source \$VIRTUAL_ENV/src/evergreen-whitebox/bin/postactivate" >> $VIRTUAL_ENV/bin/postactivate
     $ source bin/postactivate
@@ -40,7 +40,7 @@ Create development database
     $ rm dev.db
 
     # Automatically creates user "admin" / "admin"
-    $ dm-whitebox-example syncdb --noinput
+    $ dm-egwexample syncdb --noinput
 
 
 Run development server
@@ -48,7 +48,7 @@ Run development server
 
 ::
 
-    $ dm-whitebox-example runserver
+    $ dm-egwexample runserver
 
 
 Starting points
