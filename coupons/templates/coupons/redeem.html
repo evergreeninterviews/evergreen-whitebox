@@ -1,0 +1,18 @@
+{% extends "coupons/base.html" %}
+
+{% load i18n %}
+{% load lazysignup_tags %}
+
+{% block title %}{% trans "Redeem Coupon" %} - {{ block.super }}{% endblock %}
+
+{% block content %}
+    {% if perms.coupons.redeem %}
+        <form action="{% url coupons_redeem %}" method="post" accept-charset="utf-8">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <p><input type="submit" value="Redeem &rarr;"></p>
+        </form>
+    {% else %}
+        <p>You cannot redeem any coupons at this time.</p>
+    {% endif %}
+{% endblock %}

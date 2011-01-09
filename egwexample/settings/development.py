@@ -1,4 +1,4 @@
-from egwexample.settings.common import *
+from egwexample.settings.base import *
 
 
 DEBUG = TEMPLATE_DEBUG = True

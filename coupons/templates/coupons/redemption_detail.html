@@ -1,0 +1,17 @@
+{% extends "coupons/base.html" %}
+
+{% load i18n %}
+{% load lazysignup_tags %}
+
+{% block title %}{% trans "Redeem Coupon" %} - {{ block.super }}{% endblock %}
+
+{% block content %}
+    <p>Here are the coupons you've redeemed:</p>
+
+    {% with object.coupon as coupon %}
+        <div><strong>{{ coupon }}</strong></div>
+        {% if coupon.description %}
+            <div>{{ coupon.description }}</div>
+        {% endif %}
+    {% endwith %}
+{% endblock %}

@@ -1,6 +1,7 @@
 import datetime
 
 from django.contrib.auth.models import User
+from django.core.urlresolvers import reverse
 from django.db import models
 
 from coupons.exceptions import Expired, RedemptionLimitExceeded
@@ -16,10 +17,12 @@ class Coupon(models.Model):
     expires = models.DateTimeField(blank=True, null=True)
 
     class Meta:
-        pass
+        permissions = (
+            ('redeem', 'Redeem a coupon.'),
+        )
 
     def __unicode__(self):
-        return u"coupon code {0}".format(self.code)
+        return self.code
 
 
 class Redemption(models.Model):
@@ -33,7 +36,10 @@ class Redemption(models.Model):
         pass
 
     def __unicode__(self):
-        return u"{0} redeemed {1}".format(self.obj, self.coupon)
+        return u"{0} redeemed {1}".format(self.user, self.coupon)
+
+    def get_absolute_url(self):
+        return reverse('coupons_redemption_detail', kwargs=dict(object_id=self.id))
 
 
 def enforce_coupon_max_redemptions(sender, instance, *args, **kwargs):

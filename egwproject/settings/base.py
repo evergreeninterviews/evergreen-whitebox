@@ -42,6 +42,10 @@ STATIC_ROOT = ''
 
 STATIC_URL = '/static/'
 
+STATICFILES_RESOLVERS = (
+    'staticfiles.resolvers.AppDirectoriesResolver',
+)
+
 ADMIN_MEDIA_PREFIX = '/media/'
 
 # Make this unique, and don't share it with anybody.
@@ -59,6 +63,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
+    'lazysignup.middleware.LazySignupMiddleware',
 )
 
 TEMPLATE_CONTEXT_PROCESSORS = (
@@ -67,10 +72,15 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'staticfiles.context_processors.static_url',
 )
 
-ROOT_URLCONF = 'egwproject.urls.common'
+ROOT_URLCONF = 'egwproject.urls.base'
 
 TEMPLATE_DIRS = (
     # 'absolute-path-to-template-directory',
+)
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'lazysignup.backends.LazySignupBackend',
 )
 
 INSTALLED_APPS = (
@@ -82,7 +92,8 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     'django.contrib.admindocs',
     'coupons',
+    'lazysignup',
     'south',
-    # Include egwproject as an app so we can access its templates and media.
+    # Include egwproject as an app so we can access templates, media, admin.
     'egwproject',
 )

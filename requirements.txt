@@ -3,4 +3,5 @@ Django>=1.2.4,<1.3
 
 # --- Common ---
 django-staticfiles==0.3.4
+-e git+https://github.com/evergreeninterviews/django-lazysignup.git@b342f1d#egg=django-lazysignup
 south==0.7.3
