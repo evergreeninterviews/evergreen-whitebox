@@ -84,6 +84,9 @@ AUTHENTICATION_BACKENDS = (
 )
 
 INSTALLED_APPS = (
+    # Include egwproject as an app so we can access templates, media, admin.
+    'egwproject',
+    #
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -91,9 +94,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.admindocs',
+    #
     'coupons',
     'lazysignup',
     'south',
-    # Include egwproject as an app so we can access templates, media, admin.
-    'egwproject',
 )
