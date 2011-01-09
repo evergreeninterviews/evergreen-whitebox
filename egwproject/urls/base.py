@@ -3,7 +3,6 @@ from django.conf.urls.defaults import *
 
 from staticfiles.urls import staticfiles_urlpatterns
 
-
 from django.contrib import admin
 admin.autodiscover()
 
