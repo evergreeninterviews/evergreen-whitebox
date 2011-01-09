@@ -100,4 +100,5 @@ INSTALLED_APPS = (
     'coupons',
     'lazysignup',
     'south',
+    'staticfiles',
 )
