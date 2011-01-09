@@ -6,12 +6,9 @@
 {% block title %}{% trans "Redeem Coupon" %} - {{ block.super }}{% endblock %}
 
 {% block content %}
-    <p>Here are the coupons you've redeemed:</p>
+    <p>{% trans "You've redeemed the following coupon:" %}</p>
 
     {% with object.coupon as coupon %}
-        <div><strong>{{ coupon }}</strong></div>
-        {% if coupon.description %}
-            <div>{{ coupon.description }}</div>
-        {% endif %}
+        {% include "coupons/coupon_detail.html" %}
     {% endwith %}
 {% endblock %}

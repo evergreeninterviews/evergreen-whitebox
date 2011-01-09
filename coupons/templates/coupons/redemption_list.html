@@ -6,18 +6,25 @@
 {% block title %}{% trans "Redeem Coupon" %} - {{ block.super }}{% endblock %}
 
 {% block content %}
-    <p>You've redeemed the following coupons:</p>
+    {% if object_list %}
+        <p>
+            {% blocktrans count object_list|length as count %}
+                You redeemed the following coupon:
+            {% plural %}
+                You redeemed the following coupons:
+            {% endblocktrans %}
+        </p>
+        <ul>
+            {% for redemption in object_list %}
+                <li>
+                    {% with redemption.coupon as coupon %}
+                        {% include "coupons/coupon_detail.html" %}
+                    {% endwith %}
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>You haven't redeemed any coupons.</p>
+    {% endif %}
 
-    <ul>
-        {% for redemption in object_list %}
-            <li>
-                {% with redemption.coupon as coupon %}
-                    <div><strong>{{ coupon }}</strong></div>
-                    {% if coupon.description %}
-                        <div>{{ coupon.description }}</div>
-                    {% endif %}
-                {% endwith %}
-            </li>
-        {% endfor %}
-    </ul>
 {% endblock %}
