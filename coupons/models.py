@@ -43,20 +43,3 @@ class Redemption(models.Model):
 
     def get_absolute_url(self):
         return reverse('coupons_redemption_detail', kwargs=dict(object_id=self.id))
-
-
-def enforce_coupon_max_redemptions(sender, instance, *args, **kwargs):
-    coupon = instance.coupon
-    if coupon.max_redemptions is not None:
-        redemption_count = coupon.redemptions.count()
-        if redemption_count >= coupon.max_redemptions:
-            raise RedemptionLimitExceeded()
-models.signals.pre_save.connect(enforce_coupon_max_redemptions, sender=Redemption)
-
-
-def enforce_coupon_expiration(sender, instance, *args, **kwargs):
-    coupon = instance.coupon
-    if coupon.expires is not None:
-        if datetime.datetime.now() >= coupon.expires:
-            raise Expired()
-models.signals.pre_save.connect(enforce_coupon_expiration, sender=Redemption)

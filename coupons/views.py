@@ -11,16 +11,14 @@ from coupons.models import Redemption
 
 @login_required
 def redeem(request, template="coupons/redeem.html", extra_context=None, *args, **kwargs):
-    if not request.user.has_perm('coupons.redeem'):
-        return redirect('coupons_redemption_list')
     extra_context = extra_context or {}
     if request.method == 'POST':
-        form = CouponRedeemForm(request.POST)
+        form = CouponRedeemForm(request.POST, user=request.user)
         if form.is_valid():
-            redemption = form.save(request)
+            redemption = form.save()
             return redirect(redemption)
     else:
-        form = CouponRedeemForm(initial=request.GET)
+        form = CouponRedeemForm(initial=request.GET, user=request.user)
     extra_context.update(
         form=form,
     )
