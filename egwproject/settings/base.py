@@ -83,6 +83,8 @@ AUTHENTICATION_BACKENDS = (
     'lazysignup.backends.LazySignupBackend',
 )
 
+LOGIN_REDIRECT_URL = '/'
+
 INSTALLED_APPS = (
     # Include egwproject as an app so we can access templates, media, admin.
     'egwproject',

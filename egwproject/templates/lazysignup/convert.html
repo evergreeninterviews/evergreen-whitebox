@@ -7,6 +7,6 @@
         {% csrf_token %}
         {{ form.as_p }}
         <input type="hidden" name="redirect_to" value="{{ redirect_to }}">
-        <input type="submit" value="{% trans "Submit" %}" />
+        <input type="submit" value="{% trans "Save &rarr;" %}" />
     </form>
 {% endblock %}
