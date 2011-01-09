@@ -4,6 +4,8 @@ from coupons.models import Coupon
 
 
 class CouponAdmin(admin.ModelAdmin):
-    pass
+
+    list_display = ('code', 'num_redemptions', 'expires', 'num_redemptions')
+
 
 admin.site.register(Coupon, CouponAdmin)

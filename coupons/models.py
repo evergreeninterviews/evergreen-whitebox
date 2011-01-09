@@ -24,6 +24,9 @@ class Coupon(models.Model):
     def __unicode__(self):
         return self.code
 
+    def num_redemptions(self):
+        return self.redemptions.count()
+
 
 class Redemption(models.Model):
     """The redemption of a coupon by another object"""
