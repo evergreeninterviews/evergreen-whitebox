@@ -9,6 +9,9 @@ admin.autodiscover()
 
 
 urlpatterns = patterns('',
+    url(regex=  r'^accounts/',
+        view=   include('egwproject.urls.accounts'),
+    ),
     url(regex=  r'^admin/doc/',
         view=   include('django.contrib.admindocs.urls'),
     ),
