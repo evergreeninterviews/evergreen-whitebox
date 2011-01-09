@@ -5,3 +5,6 @@ dm-egwexample () {
         django-admin.py $@
     )
 }
+test-egwexample () {
+    dm-egwexample test coupons $@
+}
