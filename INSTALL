@@ -40,7 +40,7 @@ Create development database
     $ rm dev.db
 
     # Automatically creates user "admin" / "admin"
-    $ dm-egwexample syncdb --noinput
+    $ dm-egwexample syncdb --migrate --noinput
 
 
 Run development server

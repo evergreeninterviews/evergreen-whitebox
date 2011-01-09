@@ -63,6 +63,7 @@ MIDDLEWARE_CLASSES = (
 
 TEMPLATE_CONTEXT_PROCESSORS = (
     'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
     'staticfiles.context_processors.static_url',
 )
 
@@ -80,7 +81,8 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.admin',
     'django.contrib.admindocs',
-
+    'coupons',
+    'south',
     # Include egwproject as an app so we can access its templates and media.
     'egwproject',
 )
