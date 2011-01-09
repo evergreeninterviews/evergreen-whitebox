@@ -3,6 +3,10 @@ from django.views.generic.simple import direct_to_template, redirect_to
 
 
 urlpatterns = patterns('coupons.views',
+    url(name=   'coupons',
+        regex=  r'^$',
+        view=   'index',
+    ),
     url(name=   'coupons_redeem',
         regex=  r'^redeem/$',
         view=   'redeem',

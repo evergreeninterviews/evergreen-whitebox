@@ -10,15 +10,25 @@ from coupons.models import Redemption
 
 
 @login_required
+def index(request, *args, **kwargs):
+    user = request.user
+    if not user.has_perm('coupons.redeem') and user.coupon_redemptions.count() > 0:
+        return redirect('coupons_redemption_list')
+    else:
+        return redirect('coupons_redeem')
+
+
+@login_required
 def redeem(request, template="coupons/redeem.html", extra_context=None, *args, **kwargs):
+    user = request.user
     extra_context = extra_context or {}
     if request.method == 'POST':
-        form = CouponRedeemForm(request.POST, user=request.user)
+        form = CouponRedeemForm(request.POST, user=user)
         if form.is_valid():
             redemption = form.save()
             return redirect(redemption)
     else:
-        form = CouponRedeemForm(initial=request.GET, user=request.user)
+        form = CouponRedeemForm(initial=request.GET, user=user)
     extra_context.update(
         form=form,
     )
